@@ -290,7 +290,15 @@ return {
 		"<ul><li>Gebruik dit menu om lokale en externe schijven te koppelen met dit apparaat zodat ze toegankelijk zijn voor de lokale Squeezebox Server.</li>" ..
 		"<li>Via de <i><b>Koppel Lokale Schijf</b></i> sectie is het mogelijk om lokale schijven te koppelen. Selecteer een van de koppelpunten. Dit is de locatie waar de schijf verschijnt in het bestandssysteem. Indien nodig kan je extra optionele koppelopties invoeren in het veld <i>Opties</i>. In normale omstandigheden hoef je geen type schijf te selecteren omdat dit automatisch gedetecteerd wordt. Klik <i>Toevoegen</i> om de schijf te koppelen met dit apparaat. Als dit gelukt is dan verschijnt de schijf in de lijst van <i>Gekoppelde Bestandssystemen</i> bovenaan deze pagina. Indien uw schijf meer dan &eacute;&eacute;n partitie heeft dan moet je erop letten dat je de juiste koppelt.</li>" ..
 		"<li>Via de <i><b>Koppel Netwerkschijf</b></i> sectie kan je netwerkschijven koppelen. Selecteer een van de koppelpunten. Voer daarna het adres van de netwerkschijf in en selecteer het type. Voor Windows (Cifs) schijven moet je een gebruikersnaam, wachtwoord en optioneel een domein invoeren. Klik <i>Toevoegen</i> om de schijf te koppelen met dit apparaat. Als dit gelukt is dan verschijnt de schijf in de lijst van <i>Gekoppelde Bestandssystemen</i> bovenaan deze pagina.</li>" ..
-		"<li>Gekoppelde bestandsystemen zullen automatisch opnieuw gekoppeld worden wanneer dit apparaat herstart en als ze beschikbaar zijn. Om ze te ontkoppelen klik je op de betreffende <i>Ontkoppel</i> knop in de <i>Gekoppelde Bestandssystemen</i> sectie.</li></ul>",
+		"<li>Gekoppelde bestandsystemen zullen automatisch opnieuw gekoppeld worden wanneer dit apparaat herstart en als ze beschikbaar zijn. Om ze te ontkoppelen klik je op de betreffende <i>Ontkoppel</i> knop in de <i>Gekoppelde Bestandssystemen</i> sectie.</li>" ..
+		"<li> Opmerkingen / Voorbeelden:"..
+		"<ul><li>Als uw muziekbibliotheek artiesten, albums of titels bevatten met Unicode-lettertype dan is het aan te raden om <b>iocharset=utf8</b> in het opties veld te plaatsen bij het koppelen van een schijf." .. 
+		"Unicode-lettertype zijn speciale letters zoals letters met accenten of umlaut. Ook speciale letters zoals graden ed vallen hieronder.</li>" .. 
+		"<li>Stel dat uw NAS of fileserver het IP adres 192.168.1.100 heeft en dat deze een netwerkshare heeft die Muziek heet dan gebruik je het volgende voorbeeld voor <i>Netwerkschijf</i>: <b>//192.168.1.100/Muziek</b></li>" .. 
+		"<li>In het <i>Opties</i> veld kan je uiteraard meerdere opties specifieren voor de te koppelen schijf. In normale omstandigheden volstaat het om volgende opties in te geven: <b>rw,nofail,iocharset=utf8</b></li>" ..
+		"<li>Als je een Windows netwerkshare wil koppelen dan gebruik je <i>Type</i> = CIFS. Voor een Linux netwerkshare is het <i>Type</i> = NFS of NFS4." ..
+		"Voor het koppelen van een lokale schijf gebruik je <i>Type</i> = FAT of NTFS indien het een DOS of Windows geformateerde schijf is. Voor Linux geformateerde schijven is het <i>Type</i> = EXT2, EXT3 of EXT4.</li>" ..
+		"</li></ul>",
 	},
 	['shutdown'] = {
 		title = "Afsluiten: herstarten of stoppen van het apparaat",
