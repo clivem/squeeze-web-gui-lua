@@ -293,7 +293,7 @@ return {
 		"<li><b>//192.168.1.100/Music</b> for a windows share called <i>Music</i> on a NAS or file server with IP address <i>192.168.1.100</i></li>" ..
 		"<li><b>Machine:/path</b> for an NFS share <i>/path</i> on a NAS or file server called <i>Machine</i></li></ul>" ..
 		"<li>Mounted file systems will be re-attached when the device restarts if they are available.  To disconnect them click the <i>Remove</i> button alongside the mount entry in the <i>Mounted&nbsp;File&nbsp;Systems</i> area.</li>" ..
-		"<li>If your music library contains artists, albums or titles with Unicode characters such as accents and umlauts then you shouldadd the option <b>iocharset=utf8</b> to the options field.</li></ul>",
+		"<li>If your music library contains artists, albums or titles with Unicode characters such as accents and umlauts then you should add the option <b>iocharset=utf8</b> to the options field.</li></ul>",
 	},
 	['shutdown'] = {
 		title = "Shutdown: Reboot or Halt the device",
