@@ -59,6 +59,7 @@ return {
 		int_down = "Interface av",
 		int_up = "Interface på",
 		int_downup = "Interface av / på",
+		none = "(ingen)",
 		ipaddr_tip = "Ange statisk IP-adress",
 		netmask_tip = "Ange nätverksmask",
 		gateway_tip = "Ange IP-adress för router",

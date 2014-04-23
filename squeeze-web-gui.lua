@@ -73,6 +73,8 @@ local skin = {
 -- utils
 local debug      = arg[1] and arg[1] == '--debug'
 local test_mode  = arg[1] and arg[1] == '--test'
+local string_chk = arg[1] and arg[1] == '--strings' and arg[2]
+local string_miss= arg[1] and arg[1] == '--missing' and arg[2]
 
 -- execute a process and capture output using coroutines to reduce chance of blocking with streaming of output to sink
 -- timeout after 5 seconds or 30 mins if passed a request which will normally handle closing itself
@@ -255,6 +257,29 @@ function load_strings(lang)
 					 end
 		setmetatable(skin, { __index = func })
 	end
+end
+
+-- utility to check strings, exit after dumping strings
+if string_chk or string_miss then
+	local lang = string_chk or string_miss
+	load_strings('EN')
+	local EN = strings
+	load_strings(lang)
+	for page, v in pairs(EN) do
+		local header
+		for s, en_text in pairs(v) do
+			local str = (strings[page] or {})[s]
+			if string_chk or (string_miss and not str) then
+				if not header then print(page) header = true end
+				print("  " .. s)
+				print("     EN: " .. en_text)
+				if string_chk then
+					print("     " .. lang .. ": " .. (str or "**** MISSING ****"))
+				end
+			end
+		end
+	end
+	os.exit()
 end
 
 language = get_language() or 'EN'
