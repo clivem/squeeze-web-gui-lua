@@ -369,6 +369,8 @@ window.onload = function() {
 	  </fieldset>
 	  <fieldset>
 		<div class="entry submit">
+		  <!-- maintain excluded codecs when saving, this is not edittable -->
+		  <input type="hidden" name="exclude" value="{{{p_exclude}}}"/>
 		  <input type="reset" name="reset" value="{{{reset}}}"/>
 		  <input type="submit" id="squeezelite_config_save" name="squeezelite_config_save" value="{{{save}}}"/>
 		  <input type="submit" id="squeezelite_config_saverestart" name="squeezelite_config_saverestart" value="{{{save_restart}}}"/>

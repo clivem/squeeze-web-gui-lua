@@ -34,7 +34,7 @@ function params()
 		'resample_recipe', 'resample_flags', 'resample_attenuation', 'resample_precision',
 		'resample_end', 'resample_start', 'resample_phase',
 		'loglevel_slimproto', 'loglevel_stream', 'loglevel_decode', 'loglevel_output',
-		'logfile', 'buffer_stream', 'buffer_output', 'codec', 'priority', 'mac', 'server', 'other'
+		'logfile', 'buffer_stream', 'buffer_output', 'codec', 'exclude', 'priority', 'mac', 'server', 'other'
 	}
 end
 
@@ -91,6 +91,9 @@ function get()
 		end
 		if string.match(line, "CODEC") then
 			c.codec = string.match(line, '^CODEC="%-c%s(.-)"')
+		end
+		if string.match(line, "EXCLUDE_CODEC") then
+			c.exclude = string.match(line, '^EXCLUDE_CODEC="%-e%s(.-)"')
 		end
 		if string.match(line, "PRIORITY") then
 			c.priority = string.match(line, '^PRIORITY="%-p%s(.-)"')
@@ -222,6 +225,7 @@ function set(c)
 		if c.priority then outconf:write('PRIORITY="-p ' .. c.priority .. '"\n') end
 		if c.buffer   then outconf:write('BUFFER="-b ' .. c.buffer .. '"\n') end
 		if c.codec    then outconf:write('CODEC="-c ' .. c.codec .. '"\n') end
+		if c.exclude  then outconf:write('EXCLUDE_CODEC="-e ' .. c.exclude .. '"\n') end
 		if c.logfile  then outconf:write('LOG_FILE="-f ' .. c.logfile .. '"\n') end
 		if loglevel   then outconf:write('LOG_LEVEL="' .. loglevel .. '"\n') end
 		if c.vis      then outconf:write('VISULIZER="-v"\n') end
