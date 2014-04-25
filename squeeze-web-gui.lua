@@ -42,7 +42,7 @@ local strings, language
 -- configuration
 
 -- release version id
-local release = "1.0"
+local release = "1.1"
 
 -- server port
 local PORT = 8081
@@ -189,6 +189,9 @@ function read_config()
 				for d in string.gmatch(dirs, "(.-),") do
 					cfg.storagedirs[#cfg.storagedirs + 1] = d
 				end
+			end
+			if string.match(line, "SAMBA_DIR") then
+				cfg.sambadir = string.match(line, '^SAMBA_DIR=%s*(.-)%s*$')
 			end
 		end
 		config:close()
@@ -829,9 +832,13 @@ function StorageHandler:_response(err)
 	table.sort(mounts, function(a, b) return a.mountp < b.mountp end)
 	
 	t['p_disks']       = _ids(StorageConfig.localdisks())
-	t['p_mountpoints'] = _ids(StorageConfig.mountpoints(mounts))
 	t['p_types_local'] = _ids({ '', 'fat', 'ntfs', 'ext2', 'ext3', 'ext4' })
 	t['p_types_remote']= _ids({ '', 'cifs', 'nfs', 'nfs4' })
+
+	t['p_mountpoints'] = {}
+	for _, v in ipairs(StorageConfig.mountpoints(mounts)) do
+		table.insert(t['p_mountpoints'], { id = v, desc = (v ~= cfg.sambadir and v or v .. " (samba)") })
+	end
 	
 	for _, v in ipairs(mounts) do
 		t['p_mounts'] = t['p_mounts'] or {}
@@ -842,6 +849,7 @@ function StorageHandler:_response(err)
 			p_remove = v.active and 'remove_act' or 'remove_inact',
 			p_action_str = v.active and strings['storage']['unmount'] or strings['storage']['remount'],
 			p_remove_str = strings['storage']['remove'],
+			p_samba_str  = v.mountp == cfg.sambadir and "(samba)" or "",
 		})
 	end
 

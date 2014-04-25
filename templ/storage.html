@@ -58,6 +58,9 @@ function remoteTypeCheck() {
 		<div class="entry-indent smaller">
 		  {{{p_opt}}}
 		</div>
+		<div class="entry-indent smaller">
+		  <b>{{{p_samba_str}}}</b>
+		</div>
 		<div class="entry submit">
 		  <button type="submit" name="{{p_action}}" value={{{p_mountp}}}>{{{p_action_str}}}</button>
 		  <button type="submit" name="{{p_remove}}" value={{{p_mountp}}}>{{{p_remove_str}}}</button>
@@ -74,7 +77,7 @@ function remoteTypeCheck() {
 			<label for="mountpoint" class="label">{{{mountpoint}}}</label>
 			<select name="mountpoint" id="mountpoint" class="input">
 			  {{#p_mountpoints}}
-			  <option value="{{{id}}}" {{{selected}}}>{{{id}}}</option>
+			  <option value="{{{id}}}">{{{desc}}}</option>
 			  {{/p_mountpoints}}
 			</select>
 		  </div>
@@ -84,7 +87,7 @@ function remoteTypeCheck() {
 			<label for="spec" class="label">{{{disk}}}</label>
 			<select name="spec" id="spec" class="input">
 			  {{#p_disks}}
-			  <option value="{{{id}}}" {{{selected}}}>{{{id}}}</option>
+			  <option value="{{{id}}}">{{{id}}}</option>
 			  {{/p_disks}}
 			</select>
 		  </div>
@@ -94,7 +97,7 @@ function remoteTypeCheck() {
 			<label for="type" class="label">{{{type}}}</label>
 			<select name="type" id="type" class="input">
 			  {{#p_types_local}}
-			  <option value="{{{id}}}" {{{selected}}}>{{{id}}}</option>
+			  <option value="{{{id}}}">{{{id}}}</option>
 			  {{/p_types_local}}
 			</select>
 		  </div>
@@ -121,7 +124,7 @@ function remoteTypeCheck() {
 			<label for="mountpoint_remote" class="label">{{{mountpoint}}}</label>
 			<select name="mountpoint" id="mountpoint_remote" class="input">
 			  {{#p_mountpoints}}
-			  <option value="{{{id}}}" {{{selected}}}>{{{id}}}</option>
+			  <option value="{{{id}}}">{{{desc}}}</option>
 			  {{/p_mountpoints}}
 			</select>
 		  </div>
@@ -137,7 +140,7 @@ function remoteTypeCheck() {
 			<label for="type_remote" class="label">{{{type}}}</label>
 			<select name="type" id="type_remote" class="input" onchange="javascript:remoteTypeCheck()">
 			  {{#p_types_remote}}
-			  <option value="{{{id}}}" {{{selected}}}>{{{id}}}</option>
+			  <option value="{{{id}}}">{{{id}}}</option>
 			  {{/p_types_remote}}
 			</select>
 		  </div>
