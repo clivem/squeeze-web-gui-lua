@@ -3,6 +3,9 @@ return {
 	['languages'] = {
 		EN = "English",
 		DE = "German",
+		NL = "Dutch",
+		SV = "Swedish",
+		IT = "Italian",
 	},
 	['index'] = {
 	},

@@ -53,7 +53,7 @@ local templ_path  = path .. '/templ/'
 local static_path = path .. '/static/'
 
 -- languages supported
-local languages = { EN = true, DE = true, NL = true, SV = true }
+local languages = { EN = true, DE = true, NL = true, SV = true, IT = true }
 
 -- skin branding
 local skin = {
